@@ -1,3 +1,3 @@
 module library {
-
+    exports library;
 }

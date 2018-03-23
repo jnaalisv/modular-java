@@ -1,0 +1,17 @@
+subprojects {
+    apply plugin: "java"
+
+    afterEvaluate {
+        sourceCompatibility = JavaVersion.VERSION_1_9
+
+        compileJava {
+            inputs.property("moduleName", moduleName)
+            doFirst {
+                options.compilerArgs = [
+                        '--module-path', classpath.asPath,
+                ]
+                classpath = files()
+            }
+        }
+    }
+}
